@@ -6,9 +6,12 @@ import Footer from '../components/Footer';
 import Home from '../components/Home';
 import NotFound from '../components/NotFound';
 import Profile from '../components/Profile';
+import Movies from '../components/movies';
 //authentication
 import { useAuth0 } from '@auth0/auth0-react';
+//error Handling
 import Loading from '../components/common/Loading';
+
 
 function App() {
   const { isLoading } = useAuth0();
@@ -24,6 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path ="/movies" element={<Movies/>} />
       </Routes>
       <Footer />
     </div>
