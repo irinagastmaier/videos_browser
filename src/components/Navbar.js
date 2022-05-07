@@ -1,27 +1,20 @@
-import {
-  Box,
-  Flex,
-  Image,
-  Link,
-  Button,
-  Stack,
-} from '@chakra-ui/react';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Box, Flex, Image, Link, Stack } from '@chakra-ui/react';
 
 import { Link as RouterLink } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
+import LoginButton from './Login/LoginButton';
+import LogoutButton from './Login/LogoutButton';
 
 const NavLink = ({ to, children }) => (
-  <Link
-    as={RouterLink}
-    px={2}
-    py={1}
-    to={to}
-  >
+  <Link as={RouterLink} px={2} py={1} to={to}>
     {children}
   </Link>
 );
 
-export function Navbar() {
+function Navbar() {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <>
       <Box bg="black" color="white" px={4}>
@@ -39,12 +32,18 @@ export function Navbar() {
               w="auto"
             />
           </NavLink>
-
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
-              <Button bg="#79cadc" colorScheme="blue" color="white">
-                Sign In
-              </Button>
+              {isAuthenticated ? (
+                <NavLink
+                  to="/profile"
+                  exact
+                  activeClassName="router-link-exact-active"
+                >
+                  Profile
+                </NavLink>
+              ) : null}
+              {isAuthenticated ? <LogoutButton /> : <LoginButton />}
             </Stack>
           </Flex>
         </Flex>
