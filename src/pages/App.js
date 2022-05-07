@@ -1,5 +1,5 @@
 //routing
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 //components
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,9 +12,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 //error Handling
 import Loading from '../components/common/Loading';
 
-
 function App() {
-  const { isLoading } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
 
   if (isLoading) {
     return <Loading />;
@@ -24,10 +23,19 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {!isAuthenticated ? (
+          <>
+            <Route path="/" element={<Home />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Navigate replace to="movies" />} />
+            <Route path="/movies" element={<Movies />} />{' '}
+            <Route path="/profile" element={<Profile />} />
+          </>
+        )}
+
         <Route path="*" element={<NotFound />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path ="/movies" element={<Movies/>} />
       </Routes>
       <Footer />
     </div>
