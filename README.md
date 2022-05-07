@@ -5,7 +5,7 @@ App developed with **React JS** using JavaScript as a framework.
 
 # Server
 
-This App uses [API](https:///).
+This App uses [The Movie Database (TMDB) API](https://api.themoviedb.org/).
 
 ## Project Structure
 
@@ -16,8 +16,9 @@ This App uses [API](https:///).
 
 
 ## Libraries
-- For the UI, I'm using `X`
-- State management using `X`
+- UI: `Sass and React Chakra`
+- State management: `X` 
+- Authentication: `Auth0`
 
 ## TEST
 - unit test: `jest`.
