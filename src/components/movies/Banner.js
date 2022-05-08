@@ -1,10 +1,15 @@
-import { Box, Button, Flex, Stack, Text } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
+import { Box, Button, Flex, Stack, Text } from '@chakra-ui/react';
+import movieTrailer from 'movie-trailer';
+import ReactPlayer from 'react-player';
 import categories, { getMovies, imageBaseUrl } from '../../api';
+import Error from '../common/Error';
 
 export default function Banner({}) {
   const [movie, setMovie] = useState({});
+  const [trailerUrl, setTrailerUrl] = useState('');
   const size = 'w500/';
+  const title = movie?.title || movie?.name || movie?.original_name;
 
   const fetchRandomMovie = async (_path) => {
     try {
@@ -23,7 +28,18 @@ export default function Banner({}) {
     fetchRandomMovie();
   }, []);
 
-  const title = movie?.title || movie?.name || movie?.original_name;
+  const handleMovieUrl = (movie) => {
+    setTrailerUrl();
+    trailerUrl
+      ? setTrailerUrl('')
+      : movieTrailer(movie.title || movie.name || movie.original_name | '')
+          .then((url) => {
+            setTrailerUrl(url);
+          })
+          .catch((error) => {
+            return <Error error={error} />;
+          });
+  };
 
   return (
     <>
@@ -63,6 +79,7 @@ export default function Banner({}) {
             variant="ghost"
             color="blue.300"
             fontSize={'0.85rem'}
+            onClick={() => handleMovieUrl(movie)}
           >
             Play
           </Button>
@@ -72,6 +89,7 @@ export default function Banner({}) {
           </Text>
         </Box>
       </Flex>
+      {trailerUrl && <ReactPlayer url={trailerUrl} />}
     </>
   );
 }
