@@ -1,5 +1,7 @@
 //routing
 import { Routes, Route, Navigate } from 'react-router-dom';
+//styles
+import '../assets/scss/app.scss'
 //components
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';

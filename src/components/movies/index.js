@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Row from './Row';
 
 export default function Movies() {
   return (
-    <div>Movies</div>
-  )
+    <div>
+      Movies
+      <Row />
+    </div>
+  );
 }
