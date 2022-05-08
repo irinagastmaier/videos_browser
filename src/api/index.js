@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+export const imageBaseUrl = 'https://image.tmdb.org/t/p/';
+
 const categories = [
   {
     name: 'trending',

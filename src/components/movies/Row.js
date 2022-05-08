@@ -1,23 +1,31 @@
 import { useEffect, useState } from 'react';
-import { getMovies } from '../../api';
-
-const imageBaseUrl = 'https://image.tmdb.org/t/p/';
-const size = 'w200/';
+import { getMovies, imageBaseUrl } from '../../api';
+import Error from '../common/Error';
+import Loading from '../common/Loading';
 
 export default function Row({ name, title, path }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+  const size = 'w200/';
+
   const fetchMovies = async (path) => {
+    setIsLoading(true);
     try {
-      const data = await getMovies(path).then((res) => {
+      await getMovies(path).then((res) => {
         setMovies(res.results);
+        setIsLoading(false);
       });
     } catch (error) {
-      console.log('fetchMovies' + error);
+      return <Error error={error} />;
     }
   };
   useEffect(() => {
     fetchMovies(path);
   }, [path]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="container">

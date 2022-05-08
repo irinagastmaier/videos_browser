@@ -1,3 +1,4 @@
+//Row.js
 .container {
   margin: 1.5rem;
   color: white;
@@ -25,6 +26,19 @@
     }
   }
 }
+
+//Banner.js
+.container {
+  object-fit: contain;
+  .poster {
+    width: 100%;
+    object-fit: cover;
+  }
+  .h {
+    height: 25rem;
+  }
+}
+
 
 /* Android and smaller screens */
 // @media only screen and (max-width: 40rem) {
