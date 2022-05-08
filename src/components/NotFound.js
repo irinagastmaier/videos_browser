@@ -3,7 +3,6 @@ import {
   Button,
   Heading,
   Text,
-  useColorModeValue,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
