@@ -15,8 +15,9 @@ This App uses [The Movie Database (TMDB) API](https://api.themoviedb.org/).
 - ``src/tests``     tests
 
 
-## Libraries
+## Libraries and Packages
 - UI: `Sass and React Chakra`
+- Fetch and display movie trailer: `movie-trailer` e `react-player`
 - State management: `X` 
 - Authentication: `Auth0`
 

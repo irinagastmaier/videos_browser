@@ -1,4 +1,6 @@
+import movieTrailer from 'movie-trailer';
 import { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import { getMovies, imageBaseUrl } from '../../api';
 import Error from '../common/Error';
 import Loading from '../common/Loading';
@@ -6,6 +8,7 @@ import Loading from '../common/Loading';
 export default function Row({ name, title, path }) {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState('');
   const size = 'w200/';
 
   const fetchMovies = async (path) => {
@@ -23,6 +26,19 @@ export default function Row({ name, title, path }) {
     fetchMovies(path);
   }, [path]);
 
+  const handleMovieUrl = (movie) => {
+    setTrailerUrl();
+    trailerUrl
+      ? setTrailerUrl('')
+      : movieTrailer(movie.title || movie.name || movie.original_name | '')
+          .then((url) => {
+            setTrailerUrl(url);
+          })
+          .catch((error) => {
+            return <Error error={error} />;
+          });
+  };
+
   if (isLoading) {
     return <Loading />;
   }
@@ -38,10 +54,12 @@ export default function Row({ name, title, path }) {
               key={i}
               src={`${imageBaseUrl}${size}${movie.poster_path}`}
               alt={movie.name}
+              onClick={() => handleMovieUrl(movie)}
             />
           );
         })}
       </div>
+      {trailerUrl && <ReactPlayer url={trailerUrl} />}
     </div>
   );
 }
