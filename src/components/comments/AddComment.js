@@ -4,13 +4,11 @@ import { addComment } from './commentsSlice';
 import { useForm } from 'react-hook-form';
 import {
   FormErrorMessage,
-  FormLabel,
   FormControl,
   Input,
   Button,
   Stack,
   Heading,
-  Text,
   Box,
 } from '@chakra-ui/react';
 
@@ -44,28 +42,19 @@ const AddComment = ({ id }) => {
 
   return (
     <Stack
+      p={{ base: 4, sm: 6, md: 8 }}
       bg={'alphaBlack.900'}
       rounded={'xl'}
-      p={{ base: 4, sm: 6, md: 8 }}
-      spacing={{ base: 8 }}
-      maxW="full"
-      mt={0}
       centerContent
       overflow="hidden"
     >
-      <Stack
-        spacing={4}
-        w="100%"
-        height="auto"
-        m={{ sm: 4, md: 16, lg: 10 }}
-        p={{ sm: 5, md: 5, lg: 16 }}
-      >
+      <Stack spacing={4} w="100%" height="auto">
         <Heading
           bgGradient="linear(to-l, #50457e, #79cadc)"
           bgClip="text"
           fontWeight="extrabold"
           lineHeight={1.1}
-          fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
+          fontSize={'xl'}
         >
           Leave Your Comment
         </Heading>

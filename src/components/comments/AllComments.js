@@ -1,10 +1,7 @@
-import React from 'react';
-import AddComment from './AddComment';
-
 export default function AllComments() {
   return (
     <div>
-      <AddComment />
+     <h1>Display all user comments</h1>
     </div>
   );
 }

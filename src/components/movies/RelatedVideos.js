@@ -27,7 +27,6 @@ export default function RelatedVideos({ id }) {
     return <Loading />;
   }
 
-  console.log(movies);
 
   return (
     <div className="container">

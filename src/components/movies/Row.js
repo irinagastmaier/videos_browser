@@ -1,8 +1,9 @@
-import { Box, Center, Flex, Wrap, WrapItem } from '@chakra-ui/react';
+import { Box, Button, Flex } from '@chakra-ui/react';
 import movieTrailer from 'movie-trailer';
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { getMovies, imageBaseUrl } from '../../api';
+import AddComment from '../comments/AddComment';
 import Error from '../common/Error';
 import Loading from '../common/Loading';
 import RelatedVideos from './RelatedVideos';
@@ -12,6 +13,7 @@ export default function Row({ name, title, path }) {
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState(null);
   const [trailerUrl, setTrailerUrl] = useState('');
+  const [showAddComment, setShowAddComment] = useState(false);
   const size = 'w200/';
 
   const fetchMovies = async (path) => {
@@ -66,34 +68,39 @@ export default function Row({ name, title, path }) {
         })}
       </div>
       {trailerUrl && (
-        <Box>
-          <Flex width="100%" alignItems="center">
-            <Wrap>
-              <WrapItem>
-                <Center
-                  width="100%"
-                  maxW={'640px'}
-                  pt="2rem"
-                  position="relative"
-                >
-                  <ReactPlayer
-                    url={trailerUrl}
-                    muted={true}
-                    controls={false}
-                    width="100%"
-                    height="100%"
-                    className="react-player"
-                  />
-                </Center>
-              </WrapItem>
-              <WrapItem>
-                <Center>
-                  <RelatedVideos id={id} />
-                </Center>
-              </WrapItem>
-            </Wrap>
-          </Flex>
-        </Box>
+        <Flex width="100%" direction={'row'} wrap={'wrap'}>
+          <Box
+            width="100%"
+            maxW={'640px'}
+            minW={'300px'}
+            pt="2rem"
+            position="relative"
+          >
+            <ReactPlayer
+              url={trailerUrl}
+              muted={true}
+              controls={false}
+              width="100%"
+              height="100%"
+              className="react-player"
+            />
+          </Box>
+          <Box maxW={'640px'} minW={'150px'} alignSelf={'flex-end'}>
+            <Button
+              mt={'2rem'}
+              bg="#79cadc"
+              colorScheme="blue"
+              color="white"
+              onClick={() => setShowAddComment(true)}
+            >
+              Leave a comment
+            </Button>
+            {showAddComment && <AddComment id={id} />}
+          </Box>
+          <Box width={'50%'} maxW={'640px'} minW={'300px'}>
+            <RelatedVideos id={id} />
+          </Box>
+        </Flex>
       )}
     </div>
   );
