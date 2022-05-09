@@ -39,21 +39,44 @@
   }
 }
 
+//RelatedVideos.js
 
-/* Android and smaller screens */
-// @media only screen and (max-width: 40rem) {
+.d-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow-y: hidden;
+  width: 20%;
+  height: 8rem;
+  object-fit: contain;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  object-fit: contain;
+  .more {
+    width: 5rem;
+    transition: transform 450ms;
+    margin: 0.2rem;
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
 
-// }
 
-/* Iphone */
-// @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 
-// }
-
-/* Ipad and Kindle */
-// @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-
-// }
+/* Iphone and Android*/ /* Ipad and Kindle */
+@media only screen and (min-device-width: 360px) and (max-device-width: 1024px) {
+  .d-flex {
+    width: 100%;
+  }
+  .container {
+    margin: 0.5rem;
+  }
+  .react-player {
+    padding-left: 0.5rem;
+  }
+}
 
 /* DESKTOP + BIGGER SCREENS */
 

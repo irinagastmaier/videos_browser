@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getSimilarMovies } from '../../api';
+import { getSimilarMovies, imageBaseUrl } from '../../api';
 import Error from '../common/Error';
 import Loading from '../common/Loading';
 
 export default function RelatedVideos({ id }) {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+  const size = 'w300/';
 
   const fetchMovies = async (id) => {
     setIsLoading(true);
@@ -13,7 +14,6 @@ export default function RelatedVideos({ id }) {
       setIsLoading(false);
       await getSimilarMovies(id).then((res) => {
         setMovies(res.results);
-        console.log(res.movies);
       });
     } catch (error) {
       return <Error error={error} />;
@@ -30,8 +30,20 @@ export default function RelatedVideos({ id }) {
   console.log(movies);
 
   return (
-    <div style={{ color: 'white', background: 'black', width: '10rem' }}>
-      <h2>show me more</h2>
+    <div className="container">
+      <h2 className="title">More Like This</h2>
+      <div className="d-flex">
+        {movies?.map((movie, i) => {
+          return (
+            <img
+              className="more"
+              key={i}
+              src={`${imageBaseUrl}${size}${movie.poster_path}`}
+              alt={movie.name}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

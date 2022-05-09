@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Center, Flex, Wrap, WrapItem } from '@chakra-ui/react';
 import movieTrailer from 'movie-trailer';
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
@@ -67,18 +67,31 @@ export default function Row({ name, title, path }) {
       </div>
       {trailerUrl && (
         <Box>
-          <Flex
-            minWidth="max-content"
-            alignItems="center"
-            width="100%"
-            direction="row"
-          >
-            <Box width="100%" maxW={'640px'}>
-              <ReactPlayer url={trailerUrl} muted={true} controls={false} />
-            </Box>
-            <Box>
-              <RelatedVideos id={id} />
-            </Box>
+          <Flex width="100%" alignItems="center">
+            <Wrap>
+              <WrapItem>
+                <Center
+                  width="100%"
+                  maxW={'640px'}
+                  pt="2rem"
+                  position="relative"
+                >
+                  <ReactPlayer
+                    url={trailerUrl}
+                    muted={true}
+                    controls={false}
+                    width="100%"
+                    height="100%"
+                    className="react-player"
+                  />
+                </Center>
+              </WrapItem>
+              <WrapItem>
+                <Center>
+                  <RelatedVideos id={id} />
+                </Center>
+              </WrapItem>
+            </Wrap>
           </Flex>
         </Box>
       )}
