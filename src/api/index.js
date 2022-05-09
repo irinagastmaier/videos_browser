@@ -56,11 +56,12 @@ export const getMovies = async (path) => {
 };
 
 export const getSimilarMovies = async (id) => {
-  const url = `${process.env.REACT_APP_API_BASE_URL} /movie/${id}/similar?${process.env.REACT_APP_API_KEY}`;
+  const url = `${process.env.REACT_APP_API_BASE_URL}/movie/${id}/similar?api_key=${process.env.REACT_APP_API_KEY}`;
   try {
     const res = await axios.get(url);
     if (res.status === 200) {
       return res.data;
+      //console.log(res.data)
     }
   } catch (error) {
     console.log(error + ':getSimilarMovies error');
