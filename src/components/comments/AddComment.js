@@ -23,22 +23,23 @@ const AddComment = ({ id }) => {
     formState: { errors, isSubmitting },
   } = useForm();
 
+  let timer;
   function onSubmit(values) {
     return new Promise((resolve) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        setComment(values);
-        dispatch(
-          addComment({
-            comment: values,
-          }),
-        );
+      setComment(values);
+      dispatch(
+        addComment({
+          comment: values,
+          id: id,
+        }),
+      );
+      timer = setTimeout(() => {
+        window.location.assign('/comments');
         resolve();
-      }, 3000);
+      }, 1500);
+      return () => clearTimeout(timer);
     });
   }
-
-  console.log(comment);
 
   return (
     <Stack
