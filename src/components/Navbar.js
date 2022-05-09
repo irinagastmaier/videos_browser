@@ -1,5 +1,16 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { Box, Flex, Image, Link, Stack } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Button,
+  Flex,
+  Image,
+  Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from '@chakra-ui/react';
 
 import { Link as RouterLink } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
@@ -41,28 +52,45 @@ function Navbar() {
               w="auto"
             />
           </NavLink>
+
           <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
-              {isAuthenticated ? (
-                <>
-                  <NavLink
-                    to="/comments"
-                    exact
-                    activeClassName="router-link-exact-active"
+            {isAuthenticated ? (
+              <Box px={2} w={'100%'} mr={2} bg="alphaBlack.700" color="white">
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    rounded={'full'}
+                    variant={'link'}
+                    cursor={'pointer'}
+                    minW={0}
                   >
-                    Commments
-                  </NavLink>
-                  <NavLink
-                    to="/profile"
-                    exact
-                    activeClassName="router-link-exact-active"
-                  >
-                    Profile
-                  </NavLink>
-                </>
-              ) : null}
-              {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-            </Stack>
+                    <HamburgerIcon color="#79cadc" />
+                  </MenuButton>
+                  <MenuList alignItems={'center'} bg="black" color="#5a6998">
+                    <NavLink
+                      to="/profile"
+                      exact
+                      activeClassName="router-link-exact-active"
+                    >
+                      {' '}
+                      <MenuItem>Profile</MenuItem>{' '}
+                    </NavLink>
+                    <NavLink
+                      to="/comments"
+                      exact
+                      activeClassName="router-link-exact-active"
+                      _hover={{
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <MenuItem>Coments</MenuItem>
+                    </NavLink>
+                  </MenuList>
+                </Menu>
+              </Box>
+            ) : null}
+
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </Flex>
         </Flex>
       </Box>

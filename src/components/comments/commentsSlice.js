@@ -6,8 +6,7 @@ export const commentsSlice = createSlice({
   reducers: {
     addComment: (state, action) => {
       const newComment = {
-        id: action.payload.comment,
-        comment: action.payload.comment,
+        comment: action.payload,
       };
       state.push(newComment);
     },

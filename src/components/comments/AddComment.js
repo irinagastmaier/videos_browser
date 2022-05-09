@@ -24,15 +24,9 @@ const AddComment = ({ id }) => {
   } = useForm();
 
   let timer;
-  function onSubmit(values) {
+  function onSubmit(e) {
     return new Promise((resolve) => {
-      setComment(values);
-      dispatch(
-        addComment({
-          comment: values,
-          id: id,
-        }),
-      );
+      dispatch(addComment({ comment: comment, id: id }));
       timer = setTimeout(() => {
         window.location.assign('/comments');
         resolve();
@@ -73,6 +67,7 @@ const AddComment = ({ id }) => {
                     message: 'Minimum length should be 4',
                   },
                 })}
+                onChange={(e) => setComment(e.target.value)}
               />
               <FormErrorMessage>
                 {errors.comment && errors.comment.message}
