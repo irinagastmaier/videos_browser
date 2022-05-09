@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player';
 import categories, { getMovies, imageBaseUrl } from '../../api';
 import Error from '../common/Error';
 
-export default function Banner({}) {
+export default function Banner() {
   const [movie, setMovie] = useState({});
   const [trailerUrl, setTrailerUrl] = useState('');
   const size = 'w500/';
