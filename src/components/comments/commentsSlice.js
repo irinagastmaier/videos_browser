@@ -9,11 +9,11 @@ export const commentsSlice = createSlice({
   initialState,
   reducers:{
     addComment: (state, action)=>{
-        const newTask = {
+        const newComment = {
             id: new Date(),
             name: action.payload.comment
         }
-        state.push(newTask);
+        state.push(newComment);
     },
     deleteComment: (state, action)=>{
         return state.filter((item) => item.id !== action.payload.id);

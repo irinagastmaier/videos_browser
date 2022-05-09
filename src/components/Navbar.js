@@ -17,7 +17,16 @@ function Navbar() {
 
   return (
     <>
-      <Box bg="black" color="white" px={4}>
+      <Box
+        bg="black"
+        color="white"
+        px={4}
+        position="fixed"
+        as="header"
+        w="100%"
+        mt={-2}
+        zIndex={1}
+      >
         <Flex
           h={20}
           alignItems={'center'}
@@ -35,13 +44,22 @@ function Navbar() {
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               {isAuthenticated ? (
-                <NavLink
-                  to="/profile"
-                  exact
-                  activeClassName="router-link-exact-active"
-                >
-                  Profile
-                </NavLink>
+                <>
+                  <NavLink
+                    to="/comments"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    Commments
+                  </NavLink>
+                  <NavLink
+                    to="/profile"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    Profile
+                  </NavLink>
+                </>
               ) : null}
               {isAuthenticated ? <LogoutButton /> : <LoginButton />}
             </Stack>
