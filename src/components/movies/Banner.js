@@ -11,7 +11,7 @@ export default function Banner() {
   const size = 'w500/';
   const title = movie?.title || movie?.name || movie?.original_name;
 
-  const fetchRandomMovie = async (_path) => {
+  const fetchRandomMovie = async (path) => {
     try {
       await getMovies(
         categories.find((category) => category.name === 'trending').path,

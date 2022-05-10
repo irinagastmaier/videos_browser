@@ -1,7 +1,7 @@
 //Row.js
 .container {
-  margin: 1.5rem;
-  color: white;
+  margin: 2.5rem;
+  color: $white;
   .cards {
     width: 99%;
     display: flex;
@@ -63,7 +63,19 @@
   }
 }
 
+//All Comments
 
+.movie-title {
+  color: $secondary-white;
+}
+
+//Footer.js
+.footer {
+  text-align: center;
+  color: $secondary-white;
+  background-color: $black;
+  padding: 0.5rem;
+}
 
 /* Iphone and Android*/ /* Ipad and Kindle */
 @media only screen and (min-device-width: 360px) and (max-device-width: 1024px) {

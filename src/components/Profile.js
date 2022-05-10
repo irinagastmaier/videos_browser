@@ -16,7 +16,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 export default function Profile() {
   const { user } = useAuth0();
   return (
-    <Container maxW="full" mt={0} pt={12} centerContent overflow="hidden">
+    <Container maxW="full" mt={0} pt="5rem"  centerContent overflow="hidden" align={'center'}>
       <Flex width="100%" direction={'row'} wrap={'wrap'}>
         <Box
           bg="black"

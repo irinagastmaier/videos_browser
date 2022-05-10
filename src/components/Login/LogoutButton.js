@@ -11,7 +11,7 @@ const LogoutButton = () => {
         colorScheme="blue"
         color="white"
         onClick={() => logout()}
-        id="logoutBtn "
+        id="logout"
       >
         Log Out
       </Button>

@@ -61,7 +61,7 @@ export default function Row({ name, title, path }) {
               alt={movie.name}
               onClick={(e) => {
                 e.preventDefault();
-                handleMovieUrl(movie, { id: movie.id });
+                handleMovieUrl(movie, { id: movie.title });
               }}
             />
           );

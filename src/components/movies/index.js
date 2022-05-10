@@ -1,11 +1,11 @@
 import categories from '../../api';
 import Row from './Row';
-import Banner from './Banner';
+// import Banner from './Banner';
 
 export default function Movies() {
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
       {categories.map((category, i) => {
         return (
           <Row

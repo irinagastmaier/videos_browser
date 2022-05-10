@@ -35,7 +35,7 @@ function Navbar() {
         position="fixed"
         as="header"
         w="100%"
-        mt={-2}
+        top={0}
         zIndex={1}
       >
         <Flex

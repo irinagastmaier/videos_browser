@@ -9,7 +9,7 @@ const LoginButton = () => {
       colorScheme="blue"
       color="white"
       onClick={() => loginWithRedirect()}
-      id="loginBtn "
+      id="login"
     >
       Log In
     </Button>
