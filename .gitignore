@@ -10,8 +10,8 @@
 
 # production
 /build
-repo.bundle
-variables_dotenv.txt
+#  repo.bundle
+#  variables_dotenv.txt
 
 # misc
 .DS_Store
