@@ -1,5 +1,0 @@
-REACT_APP_AUTH0_DOMAIN=dev-qihe8oot.us.auth0.com
-REACT_APP_AUTH0_CLIENT_ID=RgA4FeLRAHdXMYFY42UA4v3QzCCOHpiF
-REACT_APP_API_BASE_URL='https://api.themoviedb.org/3'
-REACT_APP_API_KEY='0ab515519207a8ea7fc75579db7c6c9f'
-REACT_APP_API_IMAGE_URL='https://image.tmdb.org/t/p/'
