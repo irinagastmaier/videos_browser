@@ -2,11 +2,11 @@
 
 App developed with **React JS** using JavaScript as a framework.
 
-<img src="ttps://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_1.png?raw=true" width="100" height="100">
-<img src="ttps://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_2.png?raw=true" width="100" height="100">
-<img src="ttps://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_3.png?raw=true" width="100" height="100">
-<img src="ttps://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_4.png?raw=true" width="100" height="100">
-<img src="ttps://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_5.png?raw=true" width="100" height="100">
+<img src="https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_1.png?raw=true" width="100" height="100">
+<img src="https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_2.png?raw=true" width="100" height="100">
+<img src="https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_3.png?raw=true" width="100" height="100">
+<img src="https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_4.png?raw=true" width="100" height="100">
+<img src="https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_5.png?raw=true" width="100" height="100">
 
 ## Server
 
