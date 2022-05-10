@@ -4,7 +4,7 @@ import Row from './Row';
 
 export default function Movies() {
   return (
-    <>
+    <div style={{marginTop: '8rem'}}>
       {/* <Banner /> */}
       {categories.map((category, i) => {
         return (
@@ -16,6 +16,6 @@ export default function Movies() {
           />
         );
       })}
-    </>
+    </div>
   );
 }
