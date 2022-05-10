@@ -12,6 +12,7 @@ export default function Row({ name, title, path }) {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState(null);
+  const [titleId, setTitleId] = useState('')
   const [trailerUrl, setTrailerUrl] = useState('');
   const [showAddComment, setShowAddComment] = useState(false);
   const size = 'w200/';
@@ -33,6 +34,7 @@ export default function Row({ name, title, path }) {
 
   const handleMovieUrl = (movie, id) => {
     setTrailerUrl();
+    setTitleId(movie.title)
     setId(JSON.stringify(id).slice(6).replace('}', ''));
     trailerUrl
       ? setTrailerUrl('')
@@ -61,7 +63,7 @@ export default function Row({ name, title, path }) {
               alt={movie.name}
               onClick={(e) => {
                 e.preventDefault();
-                handleMovieUrl(movie, { id: movie.title });
+                handleMovieUrl(movie, { id: movie.id });
               }}
             />
           );
@@ -95,7 +97,7 @@ export default function Row({ name, title, path }) {
             >
               Leave a comment
             </Button>
-            {showAddComment && <AddComment id={id} />}
+            {showAddComment && <AddComment id={titleId} />}
           </Box>
           <Box width={'50%'} maxW={'640px'} minW={'300px'}>
             <RelatedVideos id={id} />
