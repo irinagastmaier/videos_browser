@@ -2,11 +2,11 @@
 
 App developed with **React JS** using JavaScript as a framework.
 
-![landing page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_1.png=250x250)
-![login page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_2.png=250x250)
-![all movies page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_3.png=250x250)
-![trailer and more movies page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_4.png=250x250)
-![comment page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_5.png?=250x250)
+![landing page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_1.png?raw=true =250x250)
+![login page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_2.png?raw=true)
+![all movies page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_3.png?raw=true)
+![trailer and more movies page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_4.png?raw=true)
+![comment page](https://github.com/irinagastmaier/videos_browser/blob/main/src/assets/images/videos_browser_5.png?raw=true)
 
 ## Server
 
